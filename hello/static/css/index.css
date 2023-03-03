@@ -1,0 +1,25 @@
+#main1{
+    background-color: #09A9C4;
+    color: white;
+    padding: 6% 15% 6% 15%;
+
+}
+
+.big-heading{
+    font-size: 3.7rem;
+    line-height: 1.5;
+    font-weight: 1100;
+}
+
+/* download button */
+.download-button{
+    margin: 5% 3% 5% 0% ;
+}
+
+/* title image */
+.image{
+    width: 120%;
+    /* transform: rotate(25deg); */
+    
+    right: 15%;
+}

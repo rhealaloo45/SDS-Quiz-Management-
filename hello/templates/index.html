@@ -1,0 +1,81 @@
+{%extends 'base.html' %}
+
+{%block title%}Home{%endblock title%}
+{%block cssfile%}<link rel="stylesheet" href="/static/css/index.css">{%endblock cssfile%}
+
+{%block body%}
+<section id="main1">
+<div class="row">
+    <div class="col-lg-6">
+      <h1 class="big-heading">Student Diagnostics System</h1>
+      <hr>
+      <h2>A portal to conduct online quizzes/assessments with minimum effort </h2>
+      <span class="dropdown">
+      <button type="button " class="btn btn-dark btn-lg dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-sign-in"></i> Log in</button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Student</a></li>
+        <li><a class="dropdown-item" href="#">Teacher</a></li>
+      </ul>
+    </span>
+    <span class="dropdown">
+      <button type="button dropdown-toggle" class="btn btn-outline-light btn-lg dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-user-plus"></i>Sign up</button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Student</a></li>
+        <li><a class="dropdown-item" href="#">Teacher</a></li>
+      </ul>
+    </span>
+    </div>
+    <div class="col-lg-6">
+      <img src="/static/images/1.png" class="image">
+    </div>
+  </div>
+  </div>
+  </section>
+
+
+<div class="container-fluid px-0 ">
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="/static/images/1.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="/static/images/2.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="/static/images/3.jpg" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>{% comment %} close container {% endcomment %}
+
+    <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3 container-fluid">
+        <div class="bg-light me-md-3 pt-3 px-0 pt-md-5 px-md-5 text-center overflow-hidden">
+          <div class="my-3 p-3">
+            <h2 class="display-7">Key Features</h2>
+            <p class="lead" style="text-align:left;" >- Detailed result analysis<br>- Receive notifications before the test begins<br>- Giving personalised quizzes</p>
+          </div>
+          <div class="mx-auto" style="width: 80%; "> <img src="https://www.pngall.com/wp-content/uploads/2/Exam-PNG-Pic.png" style="object-fit: fill; width: 200px;"></div>
+        </div>
+        <div class="text-bg-primary me-md-3 pt-3 px-0 pt-md-5 px-md-5 text-center overflow-hidden container-fluid">
+          <div class="my-3 py-3">
+            <h2 class="display-5">About us</h2>
+            <p class="lead">A common platform between the teachers and the students for conduction of Internal Assessment after completion of each chapter effectively.
+                With scheduled tests, deep result analysis and easy accessibilty we is dedicated and all set to maximise your potential like never before.<br>Because change is the end result of all true learning.
+                </p>
+                
+          </div>
+          <a class="btn btn-outline-light" href="/about" role="button">About us</a>
+
+        </div>
+      </div>
+    
+    {%endblock body%}
