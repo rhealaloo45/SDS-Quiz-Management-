@@ -2,9 +2,10 @@ from django.shortcuts import render, HttpResponse,redirect
 from datetime import datetime
 from home.models import Contact
 from home.models import studData
+from home.models import teacherData
 from django.contrib import messages 
 from django.contrib.auth.models import User
-from django.core.mail import EmailMessage, send_mail
+from django.core.mail import send_mail
 from hello import settings
 from django.contrib.auth import authenticate,login,logout
 
@@ -136,6 +137,9 @@ def signoutstudent(request):
 
 
 #TEACHER PART
+def entryt(request):
+    return render(request, "teacher/entryt.html")
+
 def loginteacher(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -147,8 +151,145 @@ def loginteacher(request):
             login(request, user)
             fname = user.first_name
             # messages.success(request, "Logged In Sucessfully!!")
-            return render(request, "student/entrys.html",{"fname":fname})
+            return render(request, "teacher/entryt.html",{"fname":fname})
         else:
             messages.error(request, "Bad Credentials!!")
             return redirect('entryt')
     return render(request, 'teacher/loginteacher.html')
+
+# def signupteacher(request):
+#     if request.method == "POST":
+#             # username = request.POST.get('username')
+#             username = request.POST['username']
+#             fname=request.POST['fname']
+#             lname=request.POST['lname']
+#             email=request.POST['email']
+#             pass1=request.POST['pass1']
+#             pass2=request.POST['pass2']
+            
+#             if User.objects.filter(username=username):
+#                 messages.error(request, "Username already exist! Please try some other username.")
+#                 return redirect('entryt')
+        
+#             # if User.objects.filter(email=email).exists():
+#             #     messages.error(request, "Email Already Registered!!")
+#             #     return redirect('entrys')
+        
+#             if len(username)>20:
+#                 messages.error(request, "Username must be under 20 charcters!!")
+#                 return redirect('entryt')
+        
+#             if pass1 != pass2:
+#                 messages.error(request, "Passwords didn't matched!!")
+#                 return redirect('entryt')
+            
+#             if not username.isalnum():
+#                 messages.error(request, "Username must be Alpha-Numeric!!")
+#                 return redirect('entryt')
+            
+#             myuser=User.objects.create_user(username,email,pass1)
+#             myuser.first_name=fname
+#             myuser.last_name=lname
+            
+#             myuser.save()
+            
+#             messages.success(request, "Your Account has been created succesfully!! Please check your email to confirm your email address in order to activate your account.")
+            
+#             # Welcome Email
+#             subject = "Welcome to Student diagnostics system!!"
+#             message = "Hello " + myuser.first_name + "!! \n" + "Welcome to SDS!! \nThank you for visiting our website\n. We have also sent you a confirmation email, please confirm your email address. \n\nThanking You\nSDS"        
+#             from_email = settings.EMAIL_HOST_USER
+#             to_list = [myuser.email]
+#             send_mail(subject, message, from_email, to_list, fail_silently=True)
+            
+            
+#             # USEER DATA SAVING
+#             username=request.POST.get('username')
+#             fname=request.POST.get('fname')
+#             lname=request.POST.get('lname')
+#             email=request.POST.get('email')
+#             # pass1=request.POST.get('pass1')
+#             sid=request.POST.get('sid')
+#             phone=request.POST.get('phone')
+#             # officephone=request.POST.get('officephone')
+#             branch=request.POST.get('branch')
+#             year=request.POST.get('year')
+#             # sem=request.POST.get('sem')
+#             signupteacher=teachData(username=username,fname=fname,lname=lname,email=email,sid=sid,phone=phone,branch=branch,year=year,date=datetime.today())
+            
+#             signupteacher.save()
+#             messages.success(request,'Registration Successfull')
+            
+#             return redirect('/loginteacher')
+#     return render(request, 'teacher/signupteacher.html')
+
+def signupteacher(request):
+    if request.method == "POST":
+            # username = request.POST.get('username')
+            username = request.POST['username']
+            fname=request.POST['fname']
+            lname=request.POST['lname']
+            email=request.POST['email']
+            pass1=request.POST['pass1']
+            pass2=request.POST['pass2']
+            
+            if User.objects.filter(username=username):
+                messages.error(request, "Username already exist! Please try some other username.")
+                return redirect('entryt')
+        
+            # if User.objects.filter(email=email).exists():
+            #     messages.error(request, "Email Already Registered!!")
+            #     return redirect('entrys')
+        
+            if len(username)>20:
+                messages.error(request, "Username must be under 20 charcters!!")
+                return redirect('entryt')
+        
+            if pass1 != pass2:
+                messages.error(request, "Passwords didn't matched!!")
+                return redirect('entryt')
+            
+            if not username.isalnum():
+                messages.error(request, "Username must be Alpha-Numeric!!")
+                return redirect('entryt')
+            
+            myuser=User.objects.create_user(username,email,pass1)
+            myuser.first_name=fname
+            myuser.last_name=lname
+            
+            myuser.save()
+            
+            messages.success(request, "Your Account has been created succesfully!! Please check your email to confirm your email address in order to activate your account.")
+            
+            # Welcome Email
+            subject = "Welcome to Student diagnostics system!!"
+            message = "Hello " + myuser.first_name + "!! \n" + "Welcome to SDS!! \nThank you for visiting our website\n. We have also sent you a confirmation email, please confirm your email address. \n\nThanking You\nSDS"        
+            from_email = settings.EMAIL_HOST_USER
+            to_list = [myuser.email]
+            send_mail(subject, message, from_email, to_list, fail_silently=True)
+            
+            
+            # USEER DATA SAVING
+            username=request.POST.get('username')
+            fname=request.POST.get('fname')
+            lname=request.POST.get('lname')
+            email=request.POST.get('email')
+            # pass1=request.POST.get('pass1')
+            tid=request.POST.get('tid')
+            phone=request.POST.get('phone')
+            # officephone=request.POST.get('officephone')
+            branch=request.POST.get('branch')
+            year=request.POST.get('year')
+            # sem=request.POST.get('sem')
+            signupteacher=teacherData(username=username,fname=fname,lname=lname,email=email,tid=tid,phone=phone,branch=branch,year=year,date=datetime.today())
+            
+            signupteacher.save()
+            messages.success(request,'Registration Successfull')
+            
+            return redirect('/loginteacher')
+    return render(request, 'teacher/signupteacher.html')
+
+def signoutteacher(request):
+    logout(request)
+    messages.success(request, "Logged Out Successfully!!")
+    return redirect('home')
