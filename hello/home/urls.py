@@ -13,8 +13,8 @@ urlpatterns = [
     path('loginstudent',views.loginstudent, name='loginstudent'),
     path('signupstudent',views.signupstudent, name='signupstudent'),
     path('signoutstudent',views.signoutstudent, name='signoutstudent'),
-    # path('entryt',views.entryt, name='entryt'),
+    path('entryt',views.entryt, name='entryt'),
     path('loginteacher',views.loginteacher, name='loginteacher'),
-    # path('signupteacher',views.signupteacher, name='signupteacher'),
-    # path('signoutteacher',views.signoutteacher, name='signoutteacher'),
+    path('signupteacher',views.signupteacher, name='signupteacher'),
+    path('signoutteacher',views.signoutteacher, name='signoutteacher'),
 ]

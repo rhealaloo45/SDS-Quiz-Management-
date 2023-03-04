@@ -5,7 +5,7 @@
 }
 
 body {
-	background: url("/static/images/login.png") no-repeat;
+	background: url("/static/images/login.png");;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -53,21 +53,41 @@ button {
 }
 
 form {
-	background-color: #FFFFFF;
+	
 	display: flex;
+	/* align-items: center; */
+	justify-content: center;
+	flex-direction: column;
+	padding: 30px 20px;
+	height: 100%;
+	
+	text-align: left;
+}
+
+.basic{
+    background-color: #FFFFFF;
+}
+
+/* .details{
+    display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	padding: 0 20px;
+	padding: 20 10px;
 	height: 100%;
 	text-align: left;
+} */
+
+.details{
+	padding: 20px 10px;
 }
 
 input {
 	background-color: #eee;
 	border: none;
 	padding: 12px 15px;
-	margin: 8px 0;
+	/* margin: 8px 0; */
+	
 	width: 100%;
 }
 
@@ -78,8 +98,9 @@ input {
 	position: relative;
 	overflow: hidden;
 	width: 800px;
+	padding: 10px;
 	/* max-width: 100%; */
-	min-height: 480px;
+	min-height: 600px;
 }
 
 .form-container {
@@ -105,9 +126,9 @@ input {
 
 
 .overlay {
-	background: #f55116;
-	background: -webkit-linear-gradient(to right, #ff8f66, #f55116);
-	background: linear-gradient(to right, #ff8f66, #f55116);
+	background: #2253da;
+	background: -webkit-linear-gradient(to right, #7e8ff3, #2253da);
+	background: linear-gradient(to right, #7e8ff3, #2253da);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;
@@ -121,11 +142,11 @@ input {
 .overlay-panel {
 	position: absolute;
 	display: flex;
-	align-items: center;
+	align-items: left;
 	justify-content: center;
 	flex-direction: column;
 	padding: 0 40px;
-	text-align: center;
+	text-align: left;
 	top: 0;
 	height: 100%;
 	width: 50%;
@@ -164,4 +185,24 @@ input {
 	margin: 0 5px;
 	height: 275px;
 	/* width: 150px; */
+}
+
+/* NEW STUFFFF */
+.form-container1 {
+	position: absolute;
+	top: 0;
+	height: 100%;
+}
+
+.log-in-container1 {
+	left: 0;
+	/* width: 50%; */
+	z-index: 9;
+}
+
+.forname{
+	padding-top: 10px;
+	border-bottom: #333;
+	border-bottom-style: solid;
+	border-bottom-width: 2px;
 }
