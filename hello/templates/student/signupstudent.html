@@ -1,0 +1,120 @@
+{%extends 'student/baseAuth.html' %}
+
+{%block titlelog%}Student Login{%endblock titlelog%}
+{%block cssfile1%}<link rel="stylesheet" href="/static/css/student/reg.css">{%endblock cssfile1%}
+{%block bodylog%}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container1" id="container1">
+    <div class="form-container log-in-container">
+    <form method="POST" action="/signupstudent" class="mb-2 basic">
+        
+            
+            {% csrf_token %}
+            <h3 class="forname">Student Registration</h3>
+            
+            <div class="form-group box">
+                <label for="username">Username</label>
+                {% csrf_token %}
+                <input type="text" class="form-control mx-0 " id="username" name="username" placeholder="Enter Your Username" Required>
+            </div>
+            <div class="form-group box">
+                <label for="fname">First name</label></span>
+                <input type="text" class="form-control mx-0 " id="fname" name="fname" placeholder="Enter your first name" required>
+            </div>
+            <div class="form-group box">
+                <label for="lname">Last name</label></span>
+                <input type="text" class="form-control mx-0 " id="lname" name="lname" placeholder="Enter your last name" required>
+            </div>
+            <div class="form-group box">
+                <label for="email">Email</label></span>
+                <input type="email" class="form-control mx-0 " id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group box">
+                <label for="pass1">Password</label>
+                {% csrf_token %}
+                <input type="password" class="form-control mx-0 " id="pass1" name="pass1" placeholder="Enter Your Password" Required>
+            </div>
+            <div class="form-group box">
+                <label for="pass1">Confirm Password</label>
+                {% csrf_token %}
+                <input type="pass" class="form-control mx-0 " id="pass2" name="pass2" placeholder="Confirm your password" Required>
+            </div>
+            
+            <button type="submit" class="btn btn-primary my-2" style="margin-bottom: 10px;">Register</button>{% csrf_token %}
+            {% comment %} </form> {% endcomment %}
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-right">
+                    <div class="form-container1 log-in-container1">
+                        <div class="mb-2 details">
+                            {% csrf_token %}
+                            <p>*Important details*</p>
+                            <div class="form-group box">
+                                <label for="sid">Student ID:</label>
+                                <input type="numbers" class="form-control mx-0" id="sid" name="sid" placeholder="College ID(max:10 digits)" min="0000000000" max="9999999999"required>
+                            </div>
+                            <div class="form-group box">
+                                <label for="phone">Phone number</label>
+                                <input type="phone" class="form-control mx-0" id="phone" name="phone" placeholder="Enter your phone number(10 digits max)" min="0000000000" max="9999999999"required>
+                            </div>
+                            <div class="form-group box">
+                                <label for="parphone">Parent's number</label>
+                                <input type="parphone" class="form-control mx-0" id="parphone" name="parphone" placeholder="Enter your phone number(10 digits max)" min="0000000000" max="9999999999"required>
+                            </div>
+                            <div class="row g-3">
+                                <div class="form-group box col-auto">
+                                    <label for="branch">Branch</label><select name="branch" class="form-control mx-0" id="branch">*
+                                        <option value="Computer Science">Computer Science</option>
+                                        <option value="Information Technology">Information Technology</option>
+                                        <option value="Electronics and Telecommunication">Electronics and Telecommunication</option>
+                                        <option value="Artificial Intelligence and Data Science">Artificial Intelligence and Data Science</option> required
+                                        <!--make compulsory to fill this field-->
+                                    </select>
+                                </div>
+                                <span class="form-group box col-auto">
+                                    <label for="year">Year</label><select name="year" class="form-control mx-0" id="Year">*
+                                        <option value="First year">First year</option>
+                                        <option value="Second year">Second year</option>
+                                        <option value="Third year">Third year</option>
+                                        <option value="Final year">Final year</option> required
+                                    </select>
+                                    <br>
+                                </span>
+                                
+                                {% comment %} <span class="form-group box col-auto">
+                                    <label for="sem">Semester</label><select name="semester" class="form-control mx-0" id="Semester">*
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option> required
+                                        <!--make compulsory to fill this field-->
+                                    </select> 
+                                </span> {% endcomment %}
+                                {% comment %} </div> {% endcomment %}
+                                {% comment %} </form> {% endcomment %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<br>
+<br>
+<br>
+<br>
+<script src="" async defer></script>
+
+{% endblock bodylog %}
