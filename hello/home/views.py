@@ -52,7 +52,7 @@ def loginstudent(request):
             login(request, user)
             fname = user.first_name
             # messages.success(request, "Logged In Sucessfully!!")
-            return render(request, "student/entrys.html",{"fname":fname})
+            return render(request, "student/student.html",{"fname":fname})
         else:
             messages.error(request, "Bad Credentials!!")
             return redirect('entrys')
@@ -151,7 +151,7 @@ def loginteacher(request):
             login(request, user)
             fname = user.first_name
             # messages.success(request, "Logged In Sucessfully!!")
-            return render(request, "teacher/entryt.html",{"fname":fname})
+            return render(request, "teacher/teacher.html",{"fname":fname})
         else:
             messages.error(request, "Bad Credentials!!")
             return redirect('entryt')
