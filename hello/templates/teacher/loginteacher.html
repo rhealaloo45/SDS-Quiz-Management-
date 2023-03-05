@@ -1,4 +1,4 @@
-{%extends 'student/baseAuth.html' %}
+{%extends 'teacher/baseAuth.html' %}
 
 {%block titlelog%}Teacher Login{%endblock titlelog%}
 {%block cssfile1%}<link rel="stylesheet" href="/static/css/teacher/login.css">{%endblock cssfile1%}
@@ -27,7 +27,7 @@
                 <input type="password" class="form-control mx-0 " id="pass1" name="pass1" placeholder="Enter Your Password" Required>
             </div>
             
-            <button type="submit" class="btn btn-primary my-2">Log In</button>{% csrf_token %}
+            <button type="submit" class="btn btn-primary my-2">Log In</button>
         </form>
     </div>
     <div class="overlay-container">

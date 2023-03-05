@@ -14,16 +14,8 @@
 
     <h3>Welcome to SDS!</h3>
 
-
-    {% comment %} {% if user.is_authenticated %} {% endcomment %}
-    {% comment %} <h3>Hello {{fname}}!</h3> {% endcomment %}
-    {% comment %} <h4>You're successfully logged in.</h4> {% endcomment %}
+    <h3>Hello {{fname}}!</h3>
+    <h4>You're successfully logged in.</h4>
     {% comment %} <button type="button" class="btn btn-primary"><a href="/student">Click here to move ahead</a></button> {% endcomment %}
-    {% comment %} <button type="submit"><a href="/signoutteacher">SignOut</a></button> {% endcomment %}
-    {% comment %} {% else %} {% endcomment %}
-    <button type="submit"><a href="/signupteacher">SignUp</a></button>
-    <br/>
-    <br/>
-    <button type="submit"><a href="/loginteacher">SignIn</a></button>
-    {% comment %} {% endif %} {% endcomment %}
-{% endblock bodylog %}
+    <button type="submit"><a href="/signoutteacher">SignOut</a></button>
+    {% endblock bodylog %}
