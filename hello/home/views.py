@@ -99,7 +99,7 @@ def signupstudent(request):
             
             # Welcome Email
             subject = "Welcome to Student diagnostics system!!"
-            message = "Hello " + myuser.first_name + "!! \n" + "Welcome to SDS!! \nThank you for visiting our website\n. We have also sent you a confirmation email, please confirm your email address. \n\nThanking You\nSDS"        
+            message = "Hello " + myuser.first_name + "!! \n" + "Welcome to SDS!! \nThank you for visiting our website.\nWe have also sent you a confirmation email, please confirm your email address. \n\nThanking You\nSDS"        
             from_email = settings.EMAIL_HOST_USER
             to_list = [myuser.email]
             send_mail(subject, message, from_email, to_list, fail_silently=True)
