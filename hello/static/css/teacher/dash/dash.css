@@ -2,21 +2,6 @@ body{
     background-image: url(/static/images/student/bg.jpg);
 }
 
-/* .comp1{
-    background-color: #09A9C4;
-    border-radius: 20px;
-    margin: 10px 20px 10px 20px;
-    height: 150px;
-    color: white;
-    justify-items: bottom;
-    align-items: right;
-}
-
-.comp1:hover{
-    background-color: #26c7e4;
-    color: white;
-    } */
-
 .details{
     padding: 20px;
    color: white;
@@ -31,31 +16,21 @@ body{
     background-color:rgb(249, 175, 0);
     border-radius: 20px;
     margin: 10px 20px 10px 20px;
-    /* height: 150px; */
+    /* width:300px; */
     color: white;
     justify-items: bottom;
     align-items: right;
 }
-
-/* .comp2:hover{
-    background-color: #FFCA34;
-    color: white;
-    } */
 
 .comp3{
     background-color:#fe3333;
     border-radius: 20px;
+    /* width:300px; */
     margin: 10px 20px 10px 20px;
-    height: 150px;
     color: white;
     justify-items: bottom;
     align-items: right;
 }
-
-/* .comp3:hover{
-    background-color:#FF6E6E  ;
-    color: white;
-    } */
 
 h3{
     text-align: center;

@@ -4,11 +4,13 @@ from home.models import Contact
 from home.models import studData
 from home.models import teacherData
 from home.models import questions
+from home.models import test
 from django.contrib import messages 
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from hello import settings
 from django.contrib.auth import authenticate,login,logout
+
 
  
 def index(request):
@@ -43,6 +45,7 @@ def contact(request):
 #     return render(request, "student/entrys.html")
 
 def student(request):
+    login(request)
     return redirect('student')
 
 def loginstudent(request):
@@ -144,7 +147,11 @@ def signoutstudent(request):
 # def entryt(request):
 #     return render(request, "teacher/entryt.html")
 def teacher(request):
+    login(request)
     return render(request, 'teacher/teacher.html')
+
+def trial(request):
+    return render(request, 'teacher/trial.html')
 
 def loginteacher(request):
     if request.method == 'POST':
@@ -234,9 +241,7 @@ def signoutteacher(request):
     messages.success(request, "Logged Out Successfully!!")
     return redirect('home')
 
-def setTest(request):
-    # login()
-    return render(request, 'teacher/setTest.html')
+
 
 def addQuestion(request):
     if request.method == "POST":
@@ -255,4 +260,17 @@ def addQuestion(request):
         messages.success(request,'Question added to Database')
         return redirect('/addQuestion')
     # return render()
+    return render(request, 'teacher/teacher.html')
+
+def setTest(request):
+    # login()
+    if request.method == "POST":
+        subject=request.POST.get('subject')
+        qno=request.POST.get('qno')
+        datee=request.POST.get('datee')
+        
+        setTest=test(subject=subject,qno=qno,datee=datee)
+        setTest.save()
+        messages.success(request,'Test created successfully')
+        return redirect('/setTest')
     return render(request, 'teacher/teacher.html')

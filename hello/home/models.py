@@ -53,3 +53,9 @@ class questions(models.Model):
     op4=models.CharField(max_length=1000)
     correct=models.CharField(max_length=100)
     diff=models.CharField(max_length=100)
+    
+
+class test(models.Model):
+    subject=models.CharField(max_length=100)
+    qno=models.IntegerField()
+    datee=models.DateField()
