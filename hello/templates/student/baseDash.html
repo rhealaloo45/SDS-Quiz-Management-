@@ -39,11 +39,11 @@
                 <a class="nav-link disabled" href="#">Result</a>
               </li>
             </ul>
-            <form class="d-flex" role="SignOut" style="justify-item:center;align-item:center;">
+            {% comment %} <form class="d-flex"  style="justify-item:center;align-item:center;"> {% endcomment %}
                 {% comment %} <label>Hello {{fname}}!</label> {% endcomment %}
                 <h4 class="nav-item">Hello {{fname}}! 
-              <button class="btn btn-outline-light  " type="submit">Log out <i class="fa fa-sign-out"></i></button></h4>
-            </form>
+                  <button class="btn" type="submit" ><a class=" btn btn-outline-light" href="/signoutstudent">Log out <i class="fa fa-sign-out"></i></a></button></h4>
+            {% comment %} </form> {% endcomment %}
           </div>
         </div>
       </nav>

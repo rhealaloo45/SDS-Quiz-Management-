@@ -18,4 +18,5 @@ urlpatterns = [
     path('loginteacher',views.loginteacher, name='loginteacher'),
     path('signupteacher',views.signupteacher, name='signupteacher'),
     path('signoutteacher',views.signoutteacher, name='signoutteacher'),
+    path('addQuestion',views.addQuestion, name='addQuestion'),
 ]
