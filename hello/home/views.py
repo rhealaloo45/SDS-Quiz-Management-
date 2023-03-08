@@ -3,6 +3,7 @@ from datetime import datetime
 from home.models import Contact
 from home.models import studData
 from home.models import teacherData
+from home.models import questions
 from django.contrib import messages 
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
@@ -143,7 +144,7 @@ def signoutstudent(request):
 # def entryt(request):
 #     return render(request, "teacher/entryt.html")
 def teacher(request):
-    return redirect('teacher')
+    return render(request, 'teacher/teacher.html')
 
 def loginteacher(request):
     if request.method == 'POST':
@@ -232,3 +233,26 @@ def signoutteacher(request):
     logout(request)
     messages.success(request, "Logged Out Successfully!!")
     return redirect('home')
+
+def setTest(request):
+    # login()
+    return render(request, 'teacher/setTest.html')
+
+def addQuestion(request):
+    if request.method == "POST":
+        subject=request.POST.get('subject')
+        topic=request.POST.get('topic')
+        question=request.POST.get('question')
+        op1=request.POST.get('op1')
+        op2=request.POST.get('op2')
+        op3=request.POST.get('op3')
+        op4=request.POST.get('op4')
+        correct=request.POST.get('correct')
+        diff=request.POST.get('diff')
+        
+        addQuestion=questions(subject=subject,topic=topic,question=question,op1=op1,op2=op2,op3=op3,op4=op4,correct=correct,diff=diff)
+        addQuestion.save()
+        messages.success(request,'Question added to Database')
+        return redirect('/addQuestion')
+    # return render()
+    return render(request, 'teacher/teacher.html')
