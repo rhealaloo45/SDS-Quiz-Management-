@@ -39,7 +39,7 @@
     {% comment %} <div class="row"> {% endcomment %}
       <div class=" comp2 details" style=" width:45%; display: inline-block" >
         <h3>Add Questions</h3>
-        <form class="form-floating data" method="POST" action="/addQuestion">
+        <form class="form-floating data" method="POST" action="/addQuestion">{% csrf_token %}
           <div class="form-floating">
             <div class="box">
               <select class="form-select" id="floatingSelect" name="subject" aria-label="Floating label select example">
@@ -47,8 +47,9 @@
                 <option value="DSA">Data Structures</option>
                 <option value="SE">Software Engineering</option>
                 <option value="JP">Java</option>required
-              </select>
+              </select> 
               {% comment %} <label for="floatingSelect">Subjects</label> {% endcomment %}
+              {% comment %} <input type="text" class="form-control" id="floatingInputValue" name="subject" value="JP" placeholder="Enter the subject" > {% endcomment %}
             </div>
             <div class="box">
               <input type="text" class="form-control" id="floatingInputValue" name="question" placeholder="Enter the Question" required>

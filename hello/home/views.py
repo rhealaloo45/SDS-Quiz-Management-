@@ -49,7 +49,6 @@ def student(request):
     return redirect('student')
 
 def quiz(request):
-    # login()
     data = test.objects.all()
     print(data)
     return render(request, 'student/quiz.html',{'data':data})
@@ -64,6 +63,7 @@ def loginstudent(request):
         if user is not None:
             login(request, user)
             fname = user.first_name
+            # user.is_active=True
             # messages.success(request, "Logged In Sucessfully!!")
             return render(request, "student/student.html",{"fname":fname})
         else:
@@ -140,6 +140,7 @@ def signupstudent(request):
 
 def signoutstudent(request):
     logout(request)
+    # user.is_active=False
     messages.success(request, "Logged Out Successfully!!")
     return redirect('home')
 
@@ -171,6 +172,7 @@ def loginteacher(request):
             login(request, user)
             fname = user.first_name
             # messages.success(request, "Logged In Sucessfully!!")
+            # user.is_active()
             return render(request, "teacher/teacher.html",{"fname":fname})
         else:
             messages.error(request, "Bad Credentials!!")
