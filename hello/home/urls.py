@@ -20,4 +20,5 @@ urlpatterns = [
     path('signoutteacher',views.signoutteacher, name='signoutteacher'),
     path('addQuestion',views.addQuestion, name='addQuestion'),
     path('setTest',views.setTest, name='setTest'),
+    path('quiz',views.quiz, name='quiz'),
 ]

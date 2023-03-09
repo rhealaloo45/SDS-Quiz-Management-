@@ -6,15 +6,38 @@
 {% if messages %}
 {% endif %} 
 
-<section id="functions">
-  <div class="container">
+<section id="current">
+  {% comment %} <div class="container"> {% endcomment %}
+
     <h2>Welcome to Student Diagnostics System!!!!</h2>
     <div class="test">
-      Current tests:
+      {% comment %} <button type="submit" class="btn btn-primary my-2" style="margin-bottom: 10px;">SET QUIZ</button> {% endcomment %}
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Subject</th>
+            <th scope="col">No. of questions</th>
+            <th scope="col">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%for i in data%}
+          <tr>
+            <th scope="row">{{i}}</th>
+            <td>{{i.fields.subject}}</td>
+            <td>{{i.fields.qno}}</td>
+            <td>{{i.fields.datee }}</td>
+          </tr>
+          {%endfor%}
+        </tbody>
+      </table>
       
     </div>
-    <div class="row">
-      <div class="col-6 comp2 details">
+  </section>
+<section id="set">
+    {% comment %} <div class="row"> {% endcomment %}
+      <div class=" comp2 details" style=" width:45%; display: inline-block" >
         <h3>Add Questions</h3>
         <form class="form-floating data" method="POST" action="/addQuestion">
           <div class="form-floating">
@@ -69,16 +92,16 @@
                 </div>
               </div>
               <div class="col">
-                <div class="box">
-                  <span class="form-group box col-auto">
+                {% comment %} <div class="box"> {% endcomment %}
+                  <div class="form-group box ">
                     <select class="form-select" id="floatingSelect" name="diff" aria-label="Floating label select example">
                       <option selected>Difficulty level</option>
                       <option value="easy">easy</option>
                       <option value="medium">medium</option>
                       <option value="hard">hard</option>required
                     </select>
-                  </span>
-                </div>
+                  </div>
+                {% comment %} </div> {% endcomment %}
               </div>
             </div>
             
@@ -86,9 +109,8 @@
           </div>
         </form>
       </div>
-      <!-- </div> -->
-      
-      <div class="col-6 comp3 details">
+
+      <div class=" comp3 details" style="height:350px; width:45%; display: inline-block">
         <h3>Create Test</h3>
         <form class="form-floating data" method="POST" action="/setTest">
           <div class="form-floating">
@@ -100,68 +122,22 @@
                 <option value="JP">Java</option>required
               </select>
             </div>
-            
-            <div class="row">
-              <div class="col">
-                <div class="box">
-                  <input type="text" class="form-control" name="qno" required placeholder="No. of Questions" aria-label="ques">
-                </div>
-              </div>
-              {% comment %} <div class="col">
-                <div class="box">
-                  <input type="text" class="form-control" name="op1" required placeholder="Enter the topic" aria-label="ques">
-                </div>
-              </div> {% endcomment %}
+            <div class="box">
+              <input type="text" class="form-control" name="qno" required placeholder="No. of Questions" aria-label="ques">
             </div>
-            {% comment %} <div class="col">
-              <div class="box">
-                <input type="text" class="form-control" name="op2" required placeholder="No. of Medium Questions" aria-label="op2">
-              </div>
+            <div class="box">
+              <input type="date" class="form-control" name="datee" required placeholder="date for quiz" aria-label="date">
             </div>
-            <div class="col">
-              <div class="box">
-                <input type="text" class="form-control" name="op2" required placeholder="No. of Difficult Questions" aria-label="op2">
-              </div>
-            </div> {% endcomment %}
-            
-            
-            {% comment %} <div class="row">
-              <div class="col">
-                <div class="box">
-                  <input type="text" class="form-control" name="op3" required placeholder="Option 3" aria-label="op3">
-                </div>
-              </div>
-              <div class="col">
-                <div class="box">
-                  <input type="text" class="form-control" name="op4" required placeholder="Option 4" aria-label="op4">
-                </div>
-              </div>
-            </div> {% endcomment %}
-            
-            <div class="row">
-              <div class="col">
-                <div class="box">
-                  <input type="date" class="form-control" name="datee" required placeholder="date for quiz" aria-label="date">
-                </div>
-              </div>
-              {% comment %} <div class="col">
-                <div class="box">
-                  <input type="number" class="form-control" name="correct" required placeholder="Time limit in minutes" aria-label="limit">
-                </div>
-              </div> {% endcomment %}
-            </div>
-            
             <button type="submit" class="btn btn-primary my-2" style="margin-bottom: 10px;">SET QUIZ</button>{% csrf_token %}
           </div>
-        </form>
         
+        </form>
       </div>
-      {% comment %} <a href="/trial">NEW PAGE TRAIL</a> {% endcomment %}
     </div>
-  </div>
   
+  </section>
   
-</section>
+
 
 
 
