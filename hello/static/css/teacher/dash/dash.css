@@ -2,24 +2,23 @@ body{
     background-image: url(/static/images/student/bg.jpg);
 }
 
-.details{
-    padding: 20px;
-   color: white;
-   border-radius: 20px;
-   font-size: 20px;
-   box-shadow: 5px 10px 18px #888888;
-   display: inline-block;
-    
-  }
+
 
 .comp2{
     background-color:rgb(249, 175, 0);
     border-radius: 20px;
     margin: 10px 20px 10px 20px;
     /* width:300px; */
+    /* height: 450px; */
     color: white;
     justify-items: bottom;
     align-items: right;
+    padding: 20px;
+    color: white;
+    border-radius: 20px;
+    font-size: 20px;
+    box-shadow: 5px 10px 18px #888888;
+    display: inline-block;
 }
 
 .comp3{
@@ -28,8 +27,16 @@ body{
     /* width:300px; */
     margin: 10px 20px 10px 20px;
     color: white;
-    justify-items: bottom;
+    justify-items: top;
     align-items: right;
+    /* margin-bottom: 100px; */
+    top:0%;
+    padding: 20px;
+    color: white;
+    border-radius: 20px;
+    font-size: 20px;
+    box-shadow: 5px 10px 18px #888888;
+    display: inline-block;
 }
 
 h3{
@@ -49,3 +56,11 @@ h3{
 .box{
     margin: 10px 10px 10px 10px;
 }
+
+.itemtoggle{
+    background-color: none;
+    border-width: 0;
+}
+
+/* table edit */
+

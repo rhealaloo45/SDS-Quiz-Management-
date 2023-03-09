@@ -10,7 +10,7 @@ from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from hello import settings
 from django.contrib.auth import authenticate,login,logout
-
+from django.core import serializers
 
  
 def index(request):
@@ -48,6 +48,12 @@ def student(request):
     login(request)
     return redirect('student')
 
+def quiz(request):
+    # login()
+    data = test.objects.all()
+    print(data)
+    return render(request, 'student/quiz.html',{'data':data})
+    
 def loginstudent(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -148,7 +154,8 @@ def signoutstudent(request):
 #     return render(request, "teacher/entryt.html")
 def teacher(request):
     login(request)
-    return render(request, 'teacher/teacher.html')
+    data = test.objects.all()
+    return render(request, 'teacher/teacher.html',{'data':data})
 
 def trial(request):
     return render(request, 'teacher/trial.html')
