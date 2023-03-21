@@ -21,28 +21,28 @@
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="/">Home</a>
               </li>
-              <li class="nav-item"> 
+              {% comment %} <li class="nav-item"> 
                 <a class="nav-link" href="/about">About us</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="/services" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Services
+              </li> {% endcomment %}
+              <li class="nav-item ">
+                <a class="nav-link" href="/services" >
+                  About us
                 </a>
-                <ul class="dropdown-menu">
+                {% comment %} <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="#">Test</a></li>
                   <li><a class="dropdown-item" href="#">Result</a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="#">schedule</a></li>
                 </ul>
-              </li>
+              </li> {% endcomment %}
               <li class="nav-item"> 
                 <a class="nav-link" href="/contact">Contact  us</a>
               </li>
             </ul>
-            <form class="d-flex" role="search">
+            {% comment %} <form class="d-flex" role="search">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+            </form> {% endcomment %}
           </div>
         </div>
       </nav>
@@ -70,8 +70,8 @@
           <ul class="nav justify-content-center border-bottom pb-3 mb-3">
             <li class="nav-item"><a href="/" class="nav-link px-2 text-muted">Home</a></li>
             {% comment %} <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li> {% endcomment %}
-            <li class="nav-item"><a href="/services" class="nav-link px-2 text-muted">Services</a></li>
-            <li class="nav-item"><a href="/about" class="nav-link px-2 text-muted">About Us</a></li>
+            <li class="nav-item"><a href="/services" class="nav-link px-2 text-muted">About us</a></li>
+            {% comment %} <li class="nav-item"><a href="/about" class="nav-link px-2 text-muted">About Us</a></li> {% endcomment %}
             <li class="nav-item"><a href="/contact" class="nav-link px-2 text-muted">Contact Us</a></li>
           </ul>
           <p class="text-center text-muted">&copy; 2023 KJSIT, Inc</p>

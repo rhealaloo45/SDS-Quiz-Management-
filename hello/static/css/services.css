@@ -1,0 +1,14 @@
+.album{
+    background-image: url(/static/images/student/bg.jpg);
+}
+
+body{
+    background-image: url(/static/images/student/bg.jpg);
+}
+
+.h{
+    right:300px;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+}

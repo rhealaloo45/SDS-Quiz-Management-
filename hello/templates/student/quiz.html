@@ -1,29 +1,247 @@
 {%extends 'student/baseDash.html' %}
 
-{%block title%}Quiz{%endblock title%}
-{%block cssfile%}<link rel="stylesheet" href="/static/css/student/dash/dash.css">{%endblock cssfile%}
+{%block title%}Student Login{%endblock title%}
+{%block cssfile%}<link rel="stylesheet" href="/static/css/student/quiz.css">{%endblock cssfile%}
 {%block body%}
-{% if messages %}
-{% endif %} 
-
+<section class="upcoming">
+    <div class="heading">
+        <h1>
+            <span>Try test:</span>
+        </h1>
+    </div>
+    
+    <div class="row">
         
-        <div class="" style="margin:10px; display:inline-block;">
-            {%for i in data%}
-            {% comment %} <div class=" comp3"> {% endcomment %}
-            <div class="" style="margin:10px; display:inline-block;">
-                <div class="card" style="width: 18rem;" >
-                    <div class="card-body">
-                      <h5 class="card-title">{{i.subject}}</h5>
-                      {% comment %} <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> {% endcomment %}
-                      <p class="card-text">No of Questions: {{i.qno}}<br>Date: {{i.datee}}</p>
-                      {% comment %} <a href="#" class="card-link">Card link</a> {% endcomment %}
-                      {% comment %} <a href="#" class="card-link">Another link</a> {% endcomment %}
-                    </div>
-                  </div>
-                    {% comment %} <ul> {% endcomment %}   
+        <div class="col-lg-3 details ">
+            {% comment %} <a href="TEST1/index.html" class="details2"> {% endcomment %}
+                <div class="u-test">
+                    <span
+                    class="info "> Subject: JAVA <br> No. of questions:10 <br> Date:10 minutes
+                </span><span class="b">
+                    <div class="notepad">
+                        <!--<img
+                            src="images/spage/notepad.png" class="notepad" alt="notepad"> -->
+                            <!-- </div> -->
+                            <img src="/static/images/student/notepad.png" class="notepad"
+                            alt="notepad">
+                        </div>
+                    </span>
                 </div>
-            {% comment %} </div> {% endcomment %}
-            {%endfor%}
+            {% comment %} </a> {% endcomment %}
+            
         </div>
+        
+        
+        <div class="col-lg-3 details ">
+            {% comment %} <a href="TEST2/index.html" class="details2"> {% endcomment %}
+                <div class="u-test">
+                    <span
+                    class="info "> Subject: FSE <br> No. of questions:10 <br> Date:10 minutes
+                </span> <span class="b">
+                    <div class="notepad">
+                        <!--<img
+                            src="images/spage/notepad.png" class="notepad" alt="notepad"> -->
+                            <!-- </div> -->
+                            <img src="/static/images/student/notepad.png" class="notepad"
+                            alt="notepad">
+                        </div>
+                    </span>
+                </div>
+            {% comment %} </a> {% endcomment %}
+            
+        </div>
+        
+        
+        <div class="col-lg-3 details ">
+            {% comment %} <a href="TEST3/index.html" class="details2"> {% endcomment %}
+                <div class="u-test">
+                    <span
+                    class="info "> Subject: DSA <br> No. of questions:10 <br> Date:10 minutes
+                </span> <span class="b">
+                    <div class="notepad">
+                        <!--<img
+                            src="images/spage/notepad.png" class="notepad" alt="notepad"> -->
+                            <!-- </div> -->
+                            <img src="/static/images/student/notepad.png" class="notepad"
+                            alt="notepad">
+                        </div>
+                    </span>
+                </div>
+            {% comment %} </a> {% endcomment %}
+        </div>
+    </div>
+    
+    <!-- </div> -->
+</section>
 
-{%endblock body%}
+<hr class="edit">
+
+<!-- SECTION 2- SUBJECT WISE TESTS -->
+<section class="section-2">
+    <div class="heading">
+        <h1>
+            <span>Practice test:</span>
+        </h1>
+    </div>
+    <!-- <div class="subs"> -->
+        <p>
+            <span class="subs"> <a class="btn btn-primary btn1 space"
+                data-bs-toggle="collapse" href="#multiCollapseExample1"
+                role="button" aria-expanded="false"
+                aria-controls="multiCollapseExample1">DSA:</a>  <a
+                    class="btn btn-primary btn1 space" data-bs-toggle="collapse"
+                    href="#multiCollapseExample3" role="button" aria-expanded="false"
+                    aria-controls="multiCollapseExample3">JAVA:</a> <a
+                    class="btn btn-primary btn1" data-bs-toggle="collapse"
+                    href="#multiCollapseExample4" role="button" aria-expanded="false"
+                    aria-controls="multiCollapseExample4">FSE:</a>
+                </span>
+            </p>
+            <!-- </div> -->
+            <div class="row hi">
+                <div class="col">
+                    <div class="collapse multi-collapse" id="multiCollapseExample1">
+                        <div class="card card-body">
+                            <div class="section-2-container">
+                                <!-- SUBJECT 1 : DSA-->
+                                
+                                <div class="product-cards">
+                                    <a href="/static/DSA/index.html" class="details2">
+                                        <div class="details1">
+                                            <div class="info">
+                                                <span> Module name: Trees <br> Subject name: DSA
+                                                    <br> Duration: 10 minutes <br>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <!-- DSA 2 -->
+                                <div class="product-cards">
+                                    <a href="/static/DSA/index2.html" class="details2">
+                                        <div class="details1">
+                                            <div class="info">
+                                                <span> Module name: Graph <br> Subject name: DSA
+                                                    <br> Duration: 10 minutes <br>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <!-- DSA 3 -->
+                                {% comment %} <div class="product-cards">
+                                    <a href="DSA/index3.html" class="details2">
+                                        <div class="details1">
+                                            <div class="info">
+                                                <span> Module name: All <br> Subject name: DSA <br>
+                                                    Duration: 10 minutes <br>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div> {% endcomment %}
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                 
+                <!-- SUBJECT 3 JAVA-->
+                <div class="col">
+                    <div class="collapse multi-collapse" id="multiCollapseExample3">
+                        <div class="card card-body">
+                            <div class="section-2-container">
+                                <!-- SUBJECT 3 : JAVA-->
+                                
+                                <div class="product-cards">
+                                    <a href="/static/JAVA/index.html" class="details2">
+                                        <div class="details1">
+                                            <div class="info">
+                                                <span> Module name: Basics <br> Subject name:
+                                                    JAVA <br> Duration: 10 minutes <br>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <!-- JAVA 2 -->
+                                <div class="product-cards">
+                                    <a href="/static/JAVA/index2.html" class="details2">
+                                        <div class="details1">
+                                            <div class="info">
+                                                <span> Module name: Arrays <br> Subject name:
+                                                    JAVA <br> Duration: 10 minutes <br>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <!-- JAVA 3 -->
+                                {% comment %} <div class="product-cards">
+                                    <a href="JAVA/index3.html" class="details2">
+                                        <div class="details1">
+                                            <div class="info">
+                                                <span> Module name: All <br> Subject name: JAVA <br>
+                                                    Duration: 10 minutes <br>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div> {% endcomment %}
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <!-- SUBJECT 4 FSE-->
+                <div class="col">
+                    <div class="collapse multi-collapse" id="multiCollapseExample4">
+                        <div class="card card-body">
+                            <div class="section-2-container">
+                                <!-- SUBJECT 3 : FSE-->
+                                
+                                <div class="product-cards">
+                                    <a href="/static/FSE/index.html" class="details2">
+                                        <div class="details1">
+                                            <div class="info">
+                                                <span> Module name: quality factor <br> Subject
+                                                    name: FSE <br> Duration: 10 minutes <br>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <!-- FSE 2 -->
+                                <div class="product-cards">
+                                    <a href="/static/FSE/index2.html" class="details2">
+                                        <div class="details1">
+                                            <div class="info">
+                                                <span> Module name: Requirement analysis <br>
+                                                    Subject name: FSE <br> Duration: 10 minutes <br>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <!-- FSE 3 -->
+                                {% comment %} <div class="product-cards">
+                                    <a href="FSE/index3.html" class="details2">
+                                        <div class="details1">
+                                            <div class="info">
+                                                <span> Module name: All <br> Subject name: FSE <br>
+                                                    Duration: 10 minutes <br>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div> {% endcomment %}
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {%endblock body%}
