@@ -4,7 +4,7 @@ from home.models import Contact
 from home.models import studData
 from home.models import teacherData
 from home.models import questions
-from home.models import test
+from home.models import test,trial
 from django.contrib import messages 
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
@@ -45,13 +45,21 @@ def contact(request):
 #     return render(request, "student/entrys.html")
 
 def student(request):
-    login(request)
+    # login(request)
     return redirect('student')
 
+def student2(request):
+    return render(request, 'student/student2.html')
+
 def quiz(request):
+    # login(request)
+    return render(request, 'student/quiz.html')
+
+def schedule(request):
+    # login(request)
     data = test.objects.all()
     print(data)
-    return render(request, 'student/quiz.html',{'data':data})
+    return render(request, 'student/schedule.html',{'data':data})
     
 def loginstudent(request):
     if request.method == 'POST':
@@ -193,10 +201,6 @@ def signupteacher(request):
                 messages.error(request, "Username already exist! Please try some other username.")
                 return redirect('home')
         
-            # if User.objects.filter(email=email).exists():
-            #     messages.error(request, "Email Already Registered!!")
-            #     return redirect('entrys')
-        
             if len(username)>20:
                 messages.error(request, "Username must be under 20 charcters!!")
                 return redirect('home')
@@ -281,5 +285,23 @@ def setTest(request):
         setTest=test(subject=subject,qno=qno,datee=datee)
         setTest.save()
         messages.success(request,'Test created successfully')
+        
+        # EMAIL
+        users = studData.objects.all()
+        for user in users:
+            subject = 'New Test set'
+            message = 'Hi ' + user.fname + ', \nA test on '+ setTest.subject +' has been created for '+setTest.datee+'.\n ALL THE BEST!!!!!'
+            from_email = settings.EMAIL_HOST_USER
+            to_list = [user.email]
+            send_mail(subject, message, from_email, to_list, fail_silently=True)
+        
         return redirect('/setTest')
     return render(request, 'teacher/teacher.html')
+
+def example(request):
+    exam = questions.objects.all()
+    return render(request,"example.html",{"exam":exam})
+
+def example1(request):
+    exam = trial.objects.all()
+    return render(request,"example1.html",{"exam":exam})

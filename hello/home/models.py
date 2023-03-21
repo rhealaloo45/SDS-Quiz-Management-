@@ -54,8 +54,16 @@ class questions(models.Model):
     correct=models.CharField(max_length=100)
     diff=models.CharField(max_length=100)
     
+    def __str__(self):
+        return self.subject
 
 class test(models.Model):
     subject=models.CharField(max_length=100)
     qno=models.IntegerField()
     datee=models.DateField()
+    
+class trial(models.Model):
+    subject=models.CharField(max_length=100)
+    qno=models.IntegerField()
+    datee=models.DateField()
+    
