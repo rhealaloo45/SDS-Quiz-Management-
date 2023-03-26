@@ -4,13 +4,22 @@ from home.models import Contact
 from home.models import studData
 from home.models import teacherData
 from home.models import questions
-from home.models import test,trial
+from home.models import test,trial,result
 from django.contrib import messages 
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
 from hello import settings
 from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth.decorators import login_required
 from django.core import serializers
+import random
+from django.shortcuts import render
+from django.http import HttpResponse
+from django.urls import reverse
+from django.shortcuts import render
+from django.http import JsonResponse
+from .models import result
+from django.views.generic import TemplateView
 
  
 def index(request):
@@ -43,18 +52,34 @@ def contact(request):
 
 # def entrys(request):
 #     return render(request, "student/entrys.html")
-
+@login_required(login_url='loginstudent')
 def student(request):
     # login(request)
-    return redirect('student')
+    # fname = user.first_name
+    # fname=fname
+    return render(request, 'student/student.html')
 
+@login_required(login_url='loginstudent')
 def student2(request):
+    # fname=fname
     return render(request, 'student/student2.html')
 
+@login_required(login_url='loginstudent')
 def quiz(request):
     # login(request)
-    return render(request, 'student/quiz.html')
+    data = test.objects.filter(datee=datetime.now().date(),subject="DSA")
+    data1 = test.objects.filter(datee=datetime.now().date(),subject="SE")
+    data2 = test.objects.filter(datee=datetime.now().date(),subject="JP")
+    # sub = test.objects.get('subject') 
+    # if sub == "DSA":
+    #     return render(request, 'my_template.html', {'sub': sub})
+    # if sub == "JAVA":
+    #     return render(request, 'my_template.html', {'sub': sub})
+    # if sub == "SE":
+    #     return render(request, 'my_template.html', {'sub': sub})
+    return render(request, 'student/quiz.html',{'data':data,'data1':data1,'data2':data2})
 
+@login_required(login_url='loginstudent')
 def schedule(request):
     # login(request)
     data = test.objects.all()
@@ -255,7 +280,7 @@ def signoutteacher(request):
     return redirect('home')
 
 
-
+@login_required(login_url='loginteacher')
 def addQuestion(request):
     if request.method == "POST":
         subject=request.POST.get('subject')
@@ -275,6 +300,7 @@ def addQuestion(request):
     # return render()
     return render(request, 'teacher/teacher.html')
 
+@login_required(login_url='loginteacher')
 def setTest(request):
     # login()
     if request.method == "POST":
@@ -298,10 +324,191 @@ def setTest(request):
         return redirect('/setTest')
     return render(request, 'teacher/teacher.html')
 
-def example(request):
-    exam = questions.objects.all()
-    return render(request,"example.html",{"exam":exam})
+@login_required(login_url='loginstudent')
+def DSA(request):
+    if request.method == 'POST':
+        print(request.POST)
+        question1=questions.objects.filter(subject='DSA').order_by('?')[:10]
+        score=0
+        wrong=0
+        correct=0
+        total=0
+        for q in question1:
+            total+=1
+            print(request.POST.get(q.question))
+            print(q.correct)
+            print()
+            if q.correct ==  request.POST.get(q.question):
+                score+=10
+                correct+=1
+            else:
+                wrong+=1
+        percent = score/(total*10) *100
+        context = {
+            'score':score,
+            'time': request.POST.get('timer'),
+            'correct':correct,
+            'wrong':wrong,
+            'percent':percent,
+            'total':total
+        }
+        
+        res=result(score=score,datee=datetime.today(),subject="DSA")
+        res.save()
+        
+        
+        return render(request,'student/result.html',context)
+    else:
+        question1=questions.objects.filter(subject='DSA').order_by('?')[:10]
+        context = {
+            'question1':question1
+        }
+        return render(request,'student/DSA.html',context)
+    
+def score_view(request):
+    score = request.GET.get('score')
+    context = {'score': score}
+    return render(request, 'score.html', context)
+
+
+@login_required(login_url='loginstudent')
+def JAVA(request):
+    if request.method == 'POST':
+        print(request.POST)
+        question1=questions.objects.filter(subject='JP').order_by('?')[:10]
+        score=0
+        wrong=0
+        correct=0
+        total=0
+        for q in question1:
+            total+=1
+            print(request.POST.get(q.question))
+            print(q.correct)
+            print()
+            if q.correct ==  request.POST.get(q.question):
+                score+=10
+                correct+=1
+            else:
+                wrong+=1
+        percent = score/(total*10) *100
+        context = {
+            'score':score,
+            'time': request.POST.get('timer'),
+            'correct':correct,
+            'wrong':wrong,
+            'percent':percent,
+            'total':total
+        }
+        return render(request,'student/result.html',context)
+    else:
+        question1=questions.objects.filter(subject='JP').order_by('?')[:10]
+        context = {
+            'question1':question1
+        }
+        return render(request,'student/JAVA.html',context)
+
+@login_required(login_url='loginstudent')
+def SE(request):
+    if request.method == 'POST':
+        print(request.POST)
+        question1=questions.objects.filter(subject='SE').order_by('?')[:10]
+        score=0
+        wrong=0
+        correct=0
+        total=0
+        for q in question1:
+            total+=1
+            print(request.POST.get(q.question))
+            print(q.correct)
+            print()
+            if q.correct ==  request.POST.get(q.question):
+                score+=10
+                correct+=1
+            else:
+                wrong+=1
+        percent = score/(total*10) *100
+        context = {
+            'score':score,
+            'time': request.POST.get('timer'),
+            'correct':correct,
+            'wrong':wrong,
+            'percent':percent,
+            'total':total
+        }
+        return render(request,'student/result.html',context)
+    else:
+        question1=questions.objects.filter(subject='SE').order_by('?')[:10]
+        context = {
+            'question1':question1
+        }
+        return render(request,'student/SE.html',context)
 
 def example1(request):
     exam = trial.objects.all()
     return render(request,"example1.html",{"exam":exam})
+
+
+def try1(request):
+    if request.method == 'POST':
+        print(request.POST)
+        question1=questions.objects.filter(subject='SE').order_by('?')[:10]
+        score=0
+        wrong=0
+        correct=0
+        total=0
+        for q in question1:
+            total+=1
+            print(request.POST.get(q.question))
+            print(q.correct)
+            print()
+            if q.correct ==  request.POST.get(q.question):
+                score+=10
+                correct+=1
+            else:
+                wrong+=1
+        percent = score/(total*10) *100
+        context = {
+            'score':score,
+            'time': request.POST.get('timer'),
+            'correct':correct,
+            'wrong':wrong,
+            'percent':percent,
+            'total':total
+        }
+        return render(request,'student/result.html',context)
+    else:
+        question1=questions.objects.filter(subject='SE').order_by('?')[:10]
+        context = {
+            'question1':question1
+        }
+        return render(request,'student/try1.html',context)
+    
+# def quiz_chart(request):
+#     # Get the data for the chart
+#     quiz_results = result.objects.all()
+#     labels = []
+#     scores = []
+    
+#     for quiz_result in quiz_results:
+#         labels.append(quiz_result.datee.strftime("%Y-%m-%d"))
+#         scores.append(quiz_result.score)
+        
+#     return render(request,'charts.html',{
+#         "labels":labels,
+#         "scores":scores,
+#     })
+#     # Return the data as a JSON response
+#     # data = {
+#     #     "labels": labels,
+#     #     "data": scores
+#     # }
+#     # return JsonResponse(data)
+
+# class chart(TemplateView):
+#     template_name="charts.html"
+    
+#     def get_context_data(self, **kwargs) :
+#         context=super().get_context_data(**kwargs)
+#         context["qs"] = result.objects.all()
+        
+        # return context

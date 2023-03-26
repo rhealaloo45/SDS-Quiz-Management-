@@ -39,31 +39,33 @@
 </head>
 <body>
 <div class="container">
-    <h1 class="text-danger mt-3">Quiz all subjects</h1>
+    
     <hr>
     <div>
         
         {% comment %} {%set numbers = [1, 2, 3, 4, 5]%} {% endcomment %}
         {% comment %} {% for j in 'x'|rjust:10 %} {% endcomment %}
-        
+        <h1 class="text-danger mt-3">Quiz : DSA</h1>
+        {% comment %} <form method="post"> {% endcomment %}
+            {% comment %} {% csrf_token %} {% endcomment %}
         {% comment %} {% endfor %} {% endcomment %}
-        {% for i in  exam%}
-
+        {% for i in  dsa_qs%}
+        
         <table>
             <tr>
                 <td class="text-primary">{{ i.id }} ) {{i.question}} ?</td>
             </tr>
             <tr>
-                <td><input type = "radio" class="rb" name = {{i.id}} id="Option1" value="{{i.op1}}">{{i.op1}}</td>
+                <td><input type = "radio" class="rb" name = {{i.id}} id="Option1" value={{i.op1}}>{{i.op1}}</td>
             </tr>
             <tr>
-                <td><input type = "radio" class="rb" name = {{i.id}} id="Option2" value="{{i.op2}}">{{i.op2}}</td>
+                <td><input type = "radio" class="rb" name = {{i.id}} id="Option2" value={{i.op2}}>{{i.op2}}</td>
             </tr>
             <tr>
-                <td><input type = "radio" class="rb" name = {{i.id}} id="Option3" value="{{i.op3}}">{{i.op3}}</td>
+                <td><input type = "radio" class="rb" name = {{i.id}} id="Option3" value={{i.op3}}>{{i.op3}}</td>
             </tr>
             <tr>
-                <td><input type = "radio" class="rb" name = {{i.id}} id="Option4" value="{{i.op4}}">{{i.op4}}</td>
+                <td><input type = "radio" class="rb" name = {{i.id}} id="Option4" value={{i.op4}}>{{i.op4}}</td>
             </tr>
 
             <tr>
@@ -77,6 +79,8 @@
         {% comment %} {% endfor %} {% endcomment %}
         <input type="submit" class="btn btn-success" value="Submit" id="b1" onclick="getanswers()">
         <br>
+    {% comment %} </form> {% endcomment %}
+
         <b id="UserAnswers"></b>
         </div>
 </div>

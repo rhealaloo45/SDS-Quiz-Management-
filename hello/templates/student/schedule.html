@@ -12,20 +12,17 @@
 <hr></div>
         <div class="itemsss" style="margin:10px; display:inline-block;">
             {%for i in data%}
-            {% comment %} <div class=" comp3"> {% endcomment %}
+            
             <div class="" style="margin:10px; display:inline-block;">
                 <div class="card" style="width: 18rem;" >
                     <div class="card-body">
                       <h5 class="card-title">{{i.subject}}</h5>
-                      {% comment %} <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> {% endcomment %}
                       <p class="card-text">No of Questions: {{i.qno}}<br>Date: {{i.datee}}</p>
-                      {% comment %} <a href="#" class="card-link">Card link</a> {% endcomment %}
-                      {% comment %} <a href="#" class="card-link">Another link</a> {% endcomment %}
                     </div>
                   </div>
-                    {% comment %} <ul> {% endcomment %}   
+                    
                 </div>
-            {% comment %} </div> {% endcomment %}
+            
             {%endfor%}
         </div>
         <div>
