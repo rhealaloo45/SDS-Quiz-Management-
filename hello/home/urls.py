@@ -23,6 +23,11 @@ urlpatterns = [
     path('setTest',views.setTest, name='setTest'),
     path('schedule',views.schedule, name='schedule'),
     path('quiz',views.quiz, name='quiz'),
-    path('example',views.example, name='example'),
+    path('DSA',views.DSA, name='DSA'),
+    path('JAVA',views.JAVA, name='JAVA'),
+    path('SE',views.SE, name='SE'),
     path('example1',views.example1, name='example1'),
+    path('try1',views.try1, name='try1'),
+    # path('quiz_chart',views.quiz_chart, name='quiz_chart'),
+    # path('chart',views.chart, name='chart'),
 ]

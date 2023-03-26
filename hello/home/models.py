@@ -62,8 +62,18 @@ class test(models.Model):
     qno=models.IntegerField()
     datee=models.DateField()
     
+
+
 class trial(models.Model):
     subject=models.CharField(max_length=100)
     qno=models.IntegerField()
     datee=models.DateField()
     
+class result(models.Model):
+    score=models.IntegerField()
+    datee=models.DateField()
+    subject=models.CharField(max_length=100)
+    # fname=models.CharField(max_length=20)
+    
+    def __str__(self):
+        return "{}-{}".format(self.date,self.score)

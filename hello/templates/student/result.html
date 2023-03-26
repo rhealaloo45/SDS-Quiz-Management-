@@ -1,0 +1,32 @@
+{% extends 'student/dependencies.html' %}
+{% comment %} {%extends 'base.html'%} {% endcomment %}
+{%block cssfile%}<link rel="stylesheet" href="/static/css/result.css">{%endblock cssfile%}
+{% block content %}
+ 
+
+        
+<section id="main1">
+<div class="container ">
+<div class="row">
+    <div class="col-lg-6">
+      <h1 class="big-heading">Score: {{score}}</h1>
+      <hr>
+      <h2><p class="card-text">Percentage: {{percent}}%</p>
+        <p class="card-text">Time Taken: {{time}} seconds</p>
+        <p class="card-text">Correct answers: {{correct}}</p>
+        <p class="card-text">Incorrect answers: {{wrong}}</p>
+        <p class="card-text">Total questions: {{total}}</p>
+        <h5>All the best for next quiz!</h5></h2>
+    </div>
+    <div class="col-lg-6">
+      <img src="/static/images/res.png" class="image">
+    </div>
+  </div>
+  </div>
+</div>
+  </section>
+               
+ 
+
+ 
+{% endblock %}
