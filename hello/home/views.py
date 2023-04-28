@@ -354,6 +354,7 @@ def DSA(request):
         }
         
         res=result(score=score,datee=datetime.today(),subject="DSA")
+        
         res.save()
         
         
@@ -367,6 +368,7 @@ def DSA(request):
     
 def score_view(request):
     score = request.GET.get('score')
+    
     context = {'score': score}
     return render(request, 'score.html', context)
 
