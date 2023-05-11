@@ -20,6 +20,7 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from .models import result
 from django.views.generic import TemplateView
+from django.db.models import Avg
 
  
 def index(request):
@@ -344,20 +345,24 @@ def DSA(request):
             else:
                 wrong+=1
         percent = score/(total*10) *100
+        
+        
+        res=result(score=score,datee=datetime.today(),subject="DSA")
+        
+        res.save()
+        
+        average_score = result.objects.filter(subject='DSA').aggregate(Avg('score'))['score__avg']
+        average_score = round(average_score, 2)
+        average_score=average_score/(total*10) *100
         context = {
             'score':score,
             'time': request.POST.get('timer'),
             'correct':correct,
             'wrong':wrong,
             'percent':percent,
-            'total':total
+            'total':total,
+            'average':average_score,
         }
-        
-        res=result(score=score,datee=datetime.today(),subject="DSA")
-        
-        res.save()
-        
-        
         return render(request,'student/result.html',context)
     else:
         question1=questions.objects.filter(subject='DSA').order_by('?')[:10]
@@ -393,13 +398,22 @@ def JAVA(request):
             else:
                 wrong+=1
         percent = score/(total*10) *100
+        
+        res=result(score=score,datee=datetime.today(),subject="JP")
+        
+        res.save()
+        
+        average_score = result.objects.filter(subject='JP').aggregate(Avg('score'))['score__avg']
+        average_score = round(average_score, 2)
+        average_score=average_score/(total*10) *100
         context = {
             'score':score,
             'time': request.POST.get('timer'),
             'correct':correct,
             'wrong':wrong,
             'percent':percent,
-            'total':total
+            'total':total,
+            'average':average_score,
         }
         return render(request,'student/result.html',context)
     else:
@@ -429,13 +443,21 @@ def SE(request):
             else:
                 wrong+=1
         percent = score/(total*10) *100
+        res=result(score=score,datee=datetime.today(),subject="SE")
+        
+        res.save()
+        
+        average_score = result.objects.filter(subject='SE').aggregate(Avg('score'))['score__avg']
+        average_score = round(average_score, 2)
+        average_score=average_score/(total*10) *100
         context = {
             'score':score,
             'time': request.POST.get('timer'),
             'correct':correct,
             'wrong':wrong,
             'percent':percent,
-            'total':total
+            'total':total,
+            'average':average_score,
         }
         return render(request,'student/result.html',context)
     else:
@@ -514,3 +536,9 @@ def try1(request):
 #         context["qs"] = result.objects.all()
         
         # return context
+        
+        
+
+
+
+    

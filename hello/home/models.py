@@ -73,7 +73,8 @@ class result(models.Model):
     score=models.IntegerField()
     datee=models.DateField()
     subject=models.CharField(max_length=100)
+    # nameee=models.CharField(max_length=100)
     # fname=models.CharField(max_length=20)
     
     def __str__(self):
-        return "{}-{}".format(self.date,self.score)
+        return "{}-{}".format(self.datee,self.score)
