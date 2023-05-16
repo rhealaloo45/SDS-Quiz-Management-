@@ -29,9 +29,9 @@ EMAIL_PORT = EMAIL_PORT
 SECRET_KEY = 'django-insecure-_l9-%a@s+=pc7ba&b3jvzl_5kj2j#ly&81o9&nld^v$!8_=e4t'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','rhealaloo45.pythonanywhere.com']
 
 
 # Application definition
@@ -48,6 +48,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
