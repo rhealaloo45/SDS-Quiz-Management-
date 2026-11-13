@@ -1,0 +1,5 @@
+
+# local database and environment
+hello/db.sqlite3
+*.sqlite3
+.env
